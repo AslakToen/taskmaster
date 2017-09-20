@@ -1,8 +1,10 @@
 var dataCacheName = 'taskmaster-v1';
 var cacheName = 'taskmasterPWA-build-0-1';
 var filesToCache = [
-  './',
-  './javascripts/fetchData.js'
+  '/',
+  '/javascripts/fetchData.js',
+  '/javascripts/register_service-worker.js',
+  '/stylesheets/style.css'
 ];
 
 self.addEventListener('install', function(e) {
@@ -28,4 +30,14 @@ self.addEventListener('activate', function(e) {
     })
   );
   return self.clients.claim();
+});
+
+self.addEventListener('fetch', function(e) {
+  console.log('[Service Worker] Fetch', e.request.url);
+    //"Cache, falling back to the network" offline strategy
+    e.respondWith(
+      caches.match(e.request).then(function(response) {
+        return response || fetch(e.request);
+      })
+    );
 });
