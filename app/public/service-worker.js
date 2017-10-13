@@ -32,12 +32,12 @@ self.addEventListener('fetch', function(e) {
     caches.open(USED_CACHES.font).then(function(cache) {
      return cache.match(e.request).then(function(response) {
        if (response) {
-         //console.log(' Found response in cache:', response);
+         console.log(' Found response in cache:', response);
 
          return response;
        }
 
-       //console.log(' No response for %s found in cache. About to fetch ' + 'from network...', e.request.url);
+       console.log(' No response for %s found in cache. About to fetch ' + 'from network...', e.request.url);
 
        return fetch(e.request.clone()).then(function(response) {
          //console.log('  Response for %s from network is: %O', e.request.url, response);
@@ -45,13 +45,13 @@ self.addEventListener('fetch', function(e) {
           //console.log('  Caching the response to', e.request.url);
            cache.put(e.request, response.clone());
          } else {
-            //console.log('  Not caching the response to', event.request.url);
+            console.log('  Not caching the response to', event.request.url);
          }
 
          return response;
        });
      }).catch(function(error) {
-       //console.error('  Error in fetch handler:', error);
+       console.error('  Error in fetch handler:', error);
 
        throw error;
      });

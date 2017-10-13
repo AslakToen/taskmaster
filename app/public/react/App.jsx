@@ -7,7 +7,7 @@ export default class App extends React.Component{
   render(){
     return(
       <div>
-        <p>{2 + 2}</p>
+        <p></p>
       </div>
     )
   }
