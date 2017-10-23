@@ -58,3 +58,10 @@ self.addEventListener('fetch', function(e) {
    })
  );
 });
+
+
+self.addEventListener('sync', function(e) {
+  if (e.tag == 'SyncEvent') {
+    console.log("sync event fired")
+  }
+});

@@ -1,5 +1,5 @@
-function getData(){
-  console.log('fetching...')
+function getData(event){
+  console.log('fetching... ' + event.id)
   fetch('http://localhost:3000/api/nodefetch').then(function (data) {
     console.log(data)
     data.json().then(function(my_json) {
@@ -15,5 +15,5 @@ function generateTable(my_json){
     "<th><button onclick='deliteEntry(event);' id=" + my_json[i].idTask + ">delite</button></th></tr>");
   }
   var table = "<table>" + output + "</table>";
-  document.getElementById("root").innerHTML = table;
+  document.getElementById("taskTableDiv").innerHTML = table;
 }
