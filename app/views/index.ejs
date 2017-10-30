@@ -4,11 +4,16 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/register_service-worker.js"></script>
+    <script src="/javascripts/fetchData.js"></script>
+    <script src="/javascripts/deliteEntry.js"></script>
+    <script src="/javascripts/addEntry.js"></script>
+    <script>
+     window.onload= getData;
+    </script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <div id="root"></div>
+    <div id="outerDiv">
+    </div>
     <script src="/javascripts/index_bundle.js"></script>
   </body>
 </html>
