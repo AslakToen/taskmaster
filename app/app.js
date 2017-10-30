@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var nodefetch = require('./routes/api/nodefetch');
 var nodedelite = require('./routes/api/nodedelite');
+var nodeadd = require('./routes/api/nodeadd');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/nodedelite', nodedelite);
 app.use('/api/nodefetch', nodefetch);
+app.use('/api/nodeadd', nodeadd);
 app.use('/', index);
 app.use('/users', users);
 

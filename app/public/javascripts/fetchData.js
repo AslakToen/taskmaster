@@ -14,6 +14,7 @@ function generateTable(my_json){
     output += ("<tr><th>" + my_json[i].TaskName + "</th>" +
     "<th><button onclick='deliteEntry(event);' id=" + my_json[i].idTask + ">delite</button></th></tr>");
   }
+  output += '<tr><th><input id="newTask" /></th><th><button onclick="addEntry();" id="btnEdit">Add Entry</button></th></tr>'
   var table = "<table>" + output + "</table>";
   document.getElementById("taskTableDiv").innerHTML = table;
 }

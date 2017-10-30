@@ -17,3 +17,7 @@ th {
 tbody {
   border: solid;
 }
+
+button {
+  width: 100%;
+}
